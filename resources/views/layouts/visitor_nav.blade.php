@@ -2,7 +2,7 @@
     <div class="container d-flex justify-content-between align-items-center">
         <!-- Logo / Judul -->
         <a class="navbar-brand fw-bold text-primary" href="{{ url('/') }}">
-            SIRUBA
+           <i class="bi bi-building text-primary me-2"></i> SIRUBA
         </a>
 
         <!-- Tombol Login -->

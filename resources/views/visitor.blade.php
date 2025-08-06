@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitor - SIRUBA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
 <body class="bg-light">
 
@@ -15,11 +17,15 @@
         <div class="row g-4">
             <!-- Judul -->
             <div class="col-md-6">
-                <div class="card shadow-sm h-100">
+                 <div class="card shadow-sm h-100">
                     <div class="card-body text-center d-flex flex-column justify-content-center">
-                        <h1 class="fw-bold">SIRUBA</h1>
+                        <!-- Judul dengan ikon -->
+                        <h1 class="fw-bold">
+                            SIRUBA
+                        </h1>
                         <p class="text-muted">Sistem Informasi Ruang</p>
                         <h5 class="mt-2 text-primary">BAPPEDA</h5>
+                        <p class="text-secondary mb-0">Kabupaten Temanggung</p>
                     </div>
                 </div>
             </div>
