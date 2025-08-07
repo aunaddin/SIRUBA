@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: siruba
+    env: docker
+    region: singapore
+    plan: free
+    branch: main
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    buildFilter:
+      paths:
+        - Dockerfile
+        - .dockerignore
