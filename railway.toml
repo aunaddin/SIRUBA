@@ -1,2 +1,5 @@
+[build]
+builder = "paketobuildpacks/builder:base"
+
 [start]
-cmd = "php artisan config:cache && php artisan migrate --force --seed && php artisan serve --host=0.0.0.0 --port=${PORT}"
+cmd = "php artisan config:cache && php artisan migrate --force && php-fpm -y /layers/paketo-buildpacks_php-fpm/php-fpm/etc/php-fpm.conf -R"
