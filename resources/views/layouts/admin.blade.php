@@ -44,5 +44,18 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+<script>
+document.addEventListener('submit', function (event) {
+    const form = event.target;
+    const btn = form.querySelector('button[type="submit"], input[type="submit"]');
+    
+    // Hanya disable kalau form valid
+    if (btn && form.checkValidity()) {
+        btn.disabled = true;
+        btn.dataset.originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+    }
+}, true);
+</script>
 </body>
 </html>

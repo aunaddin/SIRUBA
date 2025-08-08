@@ -87,7 +87,21 @@
             <button type="submit" class="btn btn-primary w-100 mb-2">Login</button>
             <a href="{{ route('visitor.index') }}" class="btn btn-secondary w-100">Kembali</a>
         </form>
-    </div>
+
+        <script>
+        document.addEventListener('submit', function (event) {
+            const btn = event.target.querySelector('button[type="submit"]');
+            if (btn) {
+                // Simpan teks asli tombol
+                btn.dataset.originalText = btn.innerText;
+
+                // Nonaktifkan tombol
+                btn.disabled = true;
+                btn.innerText = 'Memproses...';
+            }
+        }, true);
+    </script>
+</div>
 
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">

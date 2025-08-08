@@ -27,5 +27,19 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script Anti Double Submit -->
+    <script>
+        document.addEventListener('submit', function (event) {
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"], input[type="submit"]');
+            
+            // Hanya disable kalau form valid
+            if (btn && form.checkValidity()) {
+                btn.disabled = true;
+                btn.dataset.originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+            }
+        }, true);
+    </script>
 </body>
 </html>
