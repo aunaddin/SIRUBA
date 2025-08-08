@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+@section('title', 'Riwayat Peminjaman')
 @section('header', 'Riwayat Peminjaman')
 
 @section('content')

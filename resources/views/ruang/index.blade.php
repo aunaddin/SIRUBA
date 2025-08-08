@@ -1,8 +1,11 @@
 @extends('layouts.admin')
 
+@section('title', 'Daftar Ruang')
 @section('header', 'Daftar Ruang')
 
 @section('content')
+
+{{-- Tombol Tambah Ruang --}}
 <div class="mb-3 d-flex justify-content-between align-items-center flex-wrap">
     <a href="{{ route('ruang.create') }}" class="btn btn-primary shadow-sm">
         <i class="fas fa-plus"></i> Tambah Ruang

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+@section('title', 'Tambah Ruang')
 @section('header', 'Tambah Ruang')
 
 @section('content')
