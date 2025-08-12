@@ -59,6 +59,12 @@
 <body>
 
     <div class="login-card">
+        <div class="mb-3 text-center">
+            <img src="{{ asset('images/logo.jpg') }}" 
+                alt="Logo SIRUBA" 
+                class="img-fluid rounded-circle shadow-sm border" 
+                style="width: 120px; height: 120px; object-fit: cover;">
+        </div>
         <h3 class="text-center mb-4 fw-bold text-primary">SIRUBA</h3>
         <p class="text-center text-muted mb-4">Sistem Informasi Ruang BAPPEDA</p>
 
@@ -68,7 +74,7 @@
                 <span class="form-icon">
                     <i class="bi bi-envelope"></i>
                 </span>
-                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
             </div>
 
             <div class="mb-3 position-relative">

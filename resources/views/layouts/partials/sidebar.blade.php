@@ -2,8 +2,15 @@
     <!-- Logo -->
     <a href="{{ url('/dashboard') }}" 
        class="brand-link text-center" 
-       style="background: linear-gradient(135deg, #495057, #6c757d); display: block; padding: 12px;">
-        <span class="brand-text font-weight-bold text-white" style="font-size: 1.6rem; letter-spacing: 1px;">
+       style="background: linear-gradient(135deg, #495057, #6c757d); display: flex; align-items: center; justify-content: center; padding: 12px;">
+        
+        <!-- Logo -->
+        <img src="{{ asset('images/logo.jpg') }}" 
+             alt="Logo SIRUBA" 
+             style="width: 35px; height: 35px; object-fit: cover; border-radius: 50%; margin-right: 8px;">
+
+        <!-- Teks -->
+        <span class="brand-text font-weight-bold text-white" style="font-size: 1.4rem; letter-spacing: 1px;">
             SIRUBA
         </span>
     </a>
@@ -53,7 +60,7 @@
 </aside>
 
 <style>
-    /* Efek Hover Modern */
+    /* Hover Modern */
     .nav-sidebar .nav-link {
         transition: all 0.3s ease;
         border-radius: 6px;
@@ -78,5 +85,15 @@
     .nav-sidebar .nav-link.active {
         background: linear-gradient(135deg, #6c757d, #495057);
         color: #fff !important;
+    }
+
+    /* Sidebar collapse effect */
+    .sidebar-collapse .brand-text,
+    .sidebar-collapse .sub-bar-text {
+        display: none !important;
+    }
+
+    .sidebar-collapse .brand-link {
+        justify-content: center !important;
     }
 </style>

@@ -13,9 +13,8 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'username' => 'admin', // Ganti email jadi username
             'password' => Hash::make('password'),
-            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ]);
     }

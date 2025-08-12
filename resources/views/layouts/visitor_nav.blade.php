@@ -2,7 +2,11 @@
     <div class="container d-flex justify-content-between align-items-center">
         <!-- Logo / Judul -->
         <a class="navbar-brand fw-bold text-primary" href="{{ url('/') }}">
-           <i class="bi bi-building text-primary me-2"></i> SIRUBA
+            <img src="{{ asset('images/logo.jpg') }}" 
+            alt="Logo" 
+            class="brand-image img-circle elevation-3 rounded-circle" 
+            style="opacity: .8; width:40px; height:40px; object-fit:cover;">
+            SIRUBA
         </a>
 
         <!-- Tombol Login -->
