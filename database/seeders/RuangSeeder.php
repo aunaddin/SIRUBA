@@ -10,9 +10,13 @@ class RuangSeeder extends Seeder
     public function run(): void
     {
         DB::table('ruangs')->insert([
-            ['nama' => 'Ruang Rapat 1', 'kapasitas' => 20, 'lokasi' => 'Lantai 1', 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Ruang Rapat 2', 'kapasitas' => 15, 'lokasi' => 'Lantai 2', 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Aula Besar', 'kapasitas' => 50, 'lokasi' => 'Lantai 3', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Kepala Bappeda', 'kapasitas' => 15, 'lokasi' => 'Gedung B', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Sekertariat Bappeda', 'kapasitas' => 15, 'lokasi' => 'Gedung B', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Aula Progo', 'kapasitas' => 250, 'lokasi' => 'Gedung B', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Prau', 'kapasitas' => 50, 'lokasi' => 'Gedung A', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Sindoro', 'kapasitas' => 50, 'lokasi' => 'Gedung A', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Sumbing', 'kapasitas' => 50, 'lokasi' => 'Gedung A', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Maron', 'kapasitas' => 30, 'lokasi' => 'Gedung A', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

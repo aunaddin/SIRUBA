@@ -32,6 +32,14 @@ class PeminjamanController extends Controller
 
     public function store(Request $request)
     {
+         // Jika bidang lainnya dipilih
+        if ($request->bidang_id === 'lainnya') {
+            $request->merge([
+                'bidang_id' => null,
+                'bidang_manual' => $request->bidang_manual,
+            ]);
+        }
+
         $this->validateData($request);
 
         if ($this->checkConflict($request)) {
@@ -57,6 +65,15 @@ class PeminjamanController extends Controller
     public function update(Request $request, $id)
     {
         $peminjaman = Peminjaman::findOrFail($id);
+
+         // Jika bidang lainnya dipilih
+        if ($request->bidang_id === 'lainnya') {
+            $request->merge([
+                'bidang_id' => null,
+                'bidang_manual' => $request->bidang_manual,
+            ]);
+        }
+
         $this->validateData($request, $peminjaman->id);
 
         if ($this->checkConflict($request, $peminjaman->id)) {
@@ -110,7 +127,7 @@ class PeminjamanController extends Controller
     {
         $request->validate([
             'bidang_id' => 'nullable|exists:bidangs,id',
-            'bidang_manual' => 'nullable|string',
+            'bidang_manual' => $request->bidang_id === null ? 'required|string' : 'nullable|string',
             'ruang_id' => 'required|exists:ruangs,id',
             'tanggal' => 'required|date',
             'jam_mulai' => 'required',

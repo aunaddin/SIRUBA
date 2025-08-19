@@ -10,9 +10,11 @@ class BidangSeeder extends Seeder
     public function run(): void
     {
         DB::table('bidangs')->insert([
-            ['nama' => 'Bidang IT', 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Bidang Keuangan', 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Bidang Umum', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'SEKRETARIAT', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'LITBANG', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'PEIPD', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'PESDAI', 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'PPMP', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
