@@ -12,7 +12,11 @@ class DashboardController extends Controller
     {
         $jumlahRuang = Ruang::count();
         $jumlahBidang = Bidang::count();
-        $jumlahPeminjaman = Peminjaman::count();
+
+        // Hanya hitung peminjaman dengan status on going atau pending
+        $jumlahPeminjaman = Peminjaman::whereIn('status', ['ongoing', 'pending'])->count();
+
+        // Peminjaman terbaru tetap tampil semua (opsional bisa difilter juga kalau mau)
         $peminjamanTerbaru = Peminjaman::with('ruang', 'bidang')
             ->latest()
             ->take(5)

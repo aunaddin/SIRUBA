@@ -45,7 +45,7 @@
                     </div>
                     <div>
                         <h5 class="fw-bold mb-0">{{ $jumlahPeminjaman }}</h5>
-                        <p class="mb-0">Jumlah Peminjaman</p>
+                        <p class="mb-0">Peminjaman Aktif</p>
                     </div>
                 </div>
             </div>
