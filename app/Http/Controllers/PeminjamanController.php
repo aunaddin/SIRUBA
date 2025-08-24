@@ -9,19 +9,34 @@ use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // Update status setiap kali halaman dibuka
         $this->updateStatusAutomatically();
 
-        // Hanya ambil peminjaman dengan status pending atau ongoing
-        $peminjamans = Peminjaman::with('bidang', 'ruang')
+        $query = Peminjaman::with('bidang', 'ruang')
             ->whereIn('status', ['pending', 'ongoing'])
-            ->orderBy('tanggal', 'desc')
-            ->get();
+            ->orderBy('tanggal', 'desc');
 
-        return view('peminjaman.index', compact('peminjamans'));
+        // Filter berdasarkan tanggal (jika diisi)
+        if ($request->filled('tanggal')) {
+            $query->whereDate('tanggal', $request->tanggal);
+        }
+
+        // Filter berdasarkan ruang (jika diisi)
+        if ($request->filled('ruang_id')) {
+            $query->where('ruang_id', $request->ruang_id);
+        }
+
+        // Pagination 10 data per halaman
+        $peminjamans = $query->paginate(10)->withQueryString();
+
+        // Ambil semua ruang untuk filter dropdown
+        $ruangs = Ruang::all();
+
+        return view('peminjaman.index', compact('peminjamans', 'ruangs'));
     }
+
 
     public function create()
     {

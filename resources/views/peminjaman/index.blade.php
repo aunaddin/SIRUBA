@@ -23,6 +23,26 @@
         <h5 class="mb-0">
             <i class="fas fa-calendar-check"></i> Daftar Peminjaman
         </h5>
+        {{-- Filter --}}
+        <div class="mb-3">
+            <form action="{{ route('peminjaman.index') }}" method="GET" class="d-flex gap-2">
+                <input type="date" name="tanggal" class="form-control form-control-sm"
+                    value="{{ request('tanggal') }}">
+
+                <select name="ruang_id" class="form-control form-control-sm">
+                    <option value="">Semua Ruang</option>
+                    @foreach($ruangs as $ruang)
+                        <option value="{{ $ruang->id }}" {{ request('ruang_id') == $ruang->id ? 'selected' : '' }}>
+                            {{ $ruang->nama }}
+                        </option>
+                    @endforeach
+                </select>
+
+                <button type="submit" class="btn btn-success btn-sm">
+                    <i class="fas fa-search"></i> Filter
+                </button>
+            </form>
+        </div>
     </div>
 
     <div class="card-body p-0">
@@ -89,6 +109,9 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+        {{ $peminjamans->links() }}
     </div>
 </div>
 

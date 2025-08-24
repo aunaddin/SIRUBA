@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -14,13 +15,18 @@ class AuthController extends Controller
     public function login(Request $request) {
         $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
+        // cari user berdasarkan username
+        $user = User::where('username', $credentials['username'])->first();
+
+        // cek password 
+        if ($user && $user->password === $credentials['password']) {
+            Auth::login($user);
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
 
         return back()->withErrors([
-            'username' => 'username atau password salah.',
+            'username' => 'Username atau password salah.',
         ]);
     }
 
@@ -32,4 +38,3 @@ class AuthController extends Controller
         return redirect('/');
     }
 }
-
