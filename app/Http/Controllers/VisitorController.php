@@ -11,15 +11,17 @@ class VisitorController extends Controller
     {
         $this->updateStatusAutomatically();
         $today = now()->toDateString();
+        $threeDaysLater = now()->addDays(3)->toDateString();
 
         $peminjamanBerlangsung = Peminjaman::with('ruang', 'bidang')
             ->where('status', 'ongoing')
             ->whereDate('tanggal', $today)
             ->get();
 
+        // Ubah menjadi range tanggal
         $peminjamanMendatang = Peminjaman::with('ruang', 'bidang')
             ->where('status', 'pending')
-            ->whereDate('tanggal', $today)
+            ->whereBetween('tanggal', [$today, $threeDaysLater])
             ->orderBy('tanggal', 'asc')
             ->get();
 
@@ -36,6 +38,7 @@ class VisitorController extends Controller
     {
         $this->updateStatusAutomatically();
         $today = now()->toDateString();
+        $threeDaysLater = now()->addDays(3)->toDateString();
 
         $ongoing = view('partials.visitor_ongoing', [
             'peminjamanBerlangsung' => Peminjaman::with('ruang', 'bidang')
@@ -44,10 +47,11 @@ class VisitorController extends Controller
                 ->get()
         ])->render();
 
+        // Ubah menjadi range tanggal
         $upcoming = view('partials.visitor_upcoming', [
             'peminjamanMendatang' => Peminjaman::with('ruang', 'bidang')
                 ->where('status', 'pending')
-                ->whereDate('tanggal', $today)
+                ->whereBetween('tanggal', [$today, $threeDaysLater])
                 ->orderBy('tanggal', 'asc')
                 ->get()
         ])->render();
@@ -62,7 +66,6 @@ class VisitorController extends Controller
 
         return response()->json(compact('ongoing', 'upcoming', 'history'));
     }
-
 
     private function updateStatusAutomatically()
     {
